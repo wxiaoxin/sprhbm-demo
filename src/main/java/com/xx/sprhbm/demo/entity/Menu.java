@@ -43,7 +43,7 @@ public class Menu {
     private int sort;
 
     /**
-     * 状态：1-正常 9-删除
+     * 状态：1-正常 0-禁用 9-删除
      */
     @Column(columnDefinition = "smallint(3)")
     private int status;
@@ -67,7 +67,75 @@ public class Menu {
     public Menu() {
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public int getSort() {
+        return sort;
+    }
+
+    public void setSort(int sort) {
+        this.sort = sort;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public Menu getParentMenu() {
+        return parentMenu;
+    }
+
+    public void setParentMenu(Menu parentMenu) {
+        this.parentMenu = parentMenu;
+    }
+
+    public Date getCreateTimestamp() {
+        return createTimestamp;
+    }
+
+    public void setCreateTimestamp(Date createTimestamp) {
+        this.createTimestamp = createTimestamp;
+    }
+
+    public Date getUpdateTimestamp() {
+        return updateTimestamp;
+    }
+
+    public void setUpdateTimestamp(Date updateTimestamp) {
+        this.updateTimestamp = updateTimestamp;
+    }
 }

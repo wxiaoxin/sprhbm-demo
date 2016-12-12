@@ -1,7 +1,9 @@
 package com.xx.sprhbm.demo.dao;
 
-import com.sun.tools.javac.util.List;
+import com.xx.sprhbm.demo.base.Page;
 import com.xx.sprhbm.demo.entity.Menu;
+
+import java.util.List;
 
 /**
  * Created by wxiao on 2016/12/11.
@@ -16,6 +18,6 @@ public interface IMenuDao {
 
     Menu get(String id);
 
-    List<Menu> list();
+    Page<Menu> list(Page<Menu> page);
 
 }

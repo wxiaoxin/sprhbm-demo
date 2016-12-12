@@ -22,4 +22,10 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <!-- 请求拦截器 -->
+    <mvc:interceptors>
+        <bean class="com.xx.sprhbm.demo.interceptor.VueInterceptor"/>
+    </mvc:interceptors>
+
+
 </beans>

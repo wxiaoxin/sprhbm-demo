@@ -43,17 +43,27 @@ public class BaseDao {
         return this.getCurrentSession().get(clz, id);
     }
 
-    protected <T> T getByHQL(String hql, Class<T> clz) {
+    protected <T> T getByHQL(Class<T> clz, String hql) {
         Query<T> query = this.getCurrentSession().createQuery(hql, clz);
         return query.uniqueResult();
     }
+    
+    protected <T> Page<T> list(Class<T> clz, Page<T> page) {
+        String hql = "FROM " + clz.getName();
+        Query<T> query = this.getCurrentSession().createQuery(hql, clz);
+        page.setTotal(query.list().size());
+        query.setFirstResult(page.getBeginIndex());
+        query.setMaxResults(page.getPageSize());
+        page.setData(query.list());
+        return page;
+    }
 
-    protected <T> List<T> listByHQL(String hql, Class<T> clz) {
+    protected <T> List<T> listByHQL(Class<T> clz, String hql) {
         Query<T> query = this.getCurrentSession().createQuery(hql, clz);
         return query.list();
     }
 
-    protected <T> Page<T> listByHQL(String hql, Page<T> page, Class<T> clz) {
+    protected <T> Page<T> listByHQL(Class<T> clz, String hql, Page<T> page) {
         Query<T> query = this.getCurrentSession().createQuery(hql, clz);
         page.setTotal(query.list().size());
         query.setFirstResult(page.getBeginIndex());
